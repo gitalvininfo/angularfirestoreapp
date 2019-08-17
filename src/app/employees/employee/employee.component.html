@@ -1,0 +1,28 @@
+<h4 class="display-4">Employee Registration</h4>
+
+<form #form="ngForm" autocomplete="off" (submit)="onSubmit(form)">
+    <input type="hidden" name="id" #id="ngModel" [(ngModel)]="service.formData.id" class="form-control">  
+    <div class="form-group">
+        <input name="fullname" #fullname="ngModel" [(ngModel)]="service.formData.fullname" class="form-control" placeholder="Fullname" required >
+        <div *ngIf="fullname.invalid && fullname.touched" class="validation-error">This field is </div>
+    </div>
+    <div class="form-group">
+        <input name="position" #position="ngModel" [(ngModel)]="service.formData.position" class="form-control" placeholder="Position" required >
+        <div *ngIf="position.invalid && position.touched" class="validation-error">This field is </div>
+    </div>
+    <div class="form-row">
+        <div class="form-group col-md-6">
+            <input name="empCode" #empCode="ngModel" [(ngModel)]="service.formData.empCode" class="form-control" placeholder="EMP Code" required >
+            <div *ngIf="empCode.invalid && empCode.touched" class="validation-error">This field is </div>
+        </div>
+        <div class="form-group col-md-6">
+            <input name="mobile" #mobile="ngModel" [(ngModel)]="service.formData.mobile" class="form-control" placeholder="Mobile" required >
+            <div *ngIf="mobile.invalid && mobile.touched" class="validation-error">This field is </div>
+        </div>
+    </div>
+    <div class="form-group">
+        <button type="submit" [disabled]="form.invalid" class="btn btn-lg btn-block btn-info">
+            Submit
+        </button>
+    </div>
+</form>
